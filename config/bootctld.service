@@ -1,0 +1,9 @@
+[Unit]
+Description=bootctl slot switcher daemon
+After=user-session.target
+
+[Service]
+ExecStart=/usr/bin/bootctld
+
+[Install]
+WantedBy=post-user-session.target
