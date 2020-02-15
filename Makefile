@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=
 STRIP=strip
-BINARY=bootcltd
+BINARY=bootctld
 REMOVE=rm
 INSTALL_PROGRAM=install -m 755 -p
 INSTALL_FILE=install -m 644 -p
