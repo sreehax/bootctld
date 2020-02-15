@@ -2,7 +2,7 @@ Name: bootctld
 %{!?qtc_make:%define qtc_make make}
 Summary: bootctl slot switcher daemon
 Version: 1.0.0
-Release: 1
+Release: 2
 Group: System/Daemons
 License: LICENSE
 URL: https://github.com/sreehax/bootctld
@@ -42,4 +42,4 @@ fi
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}
-/usr/lib/systemd/
+/usr/lib/systemd/system/
