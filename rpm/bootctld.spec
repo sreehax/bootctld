@@ -24,22 +24,22 @@ rm -rf %{buildroot}
 
 %prerun
 if [ "$1" = "0" ]; then
-	systemctl-user stop bootctld || true
-	systemctl-user disable bootctld || true
+	systemctl stop bootctld || true
+	systemctl disable bootctld || true
 fi
 
 %post
-systemctl-user daemon-reload || true
-systemctl-user start bootctld || true
-systemctl-user enable bootctld || true
+systemctl daemon-reload || true
+systemctl start bootctld || true
+systemctl enable bootctld || true
 
 %pre
 if [ "$1" = "2" ]; then
-	systemctl-user stop bootctld || true
-	systemctl-user disable bootctld || true
+	systemctl stop bootctld || true
+	systemctl disable bootctld || true
 fi
 
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}
-/usr/lib/systemd/user/
+/usr/lib/systemd/

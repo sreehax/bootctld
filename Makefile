@@ -15,9 +15,9 @@ install_target:
 	@test -d $(INSTALL_ROOT)/usr/bin/ || mkdir -p $(INSTALL_ROOT)/usr/bin/
 	$(INSTALL_PROGRAM) $(BINARY) $(INSTALL_ROOT)/usr/bin
 install_systemd:
-	@test -d $(INSTALL_ROOT)/usr/lib/systemd/user/ || mkdir -p $(INSTALL_ROOT)/usr/lib/systemd/user/
-	$(INSTALL_FILE) config/bootctld.service $(INSTALL_ROOT)/usr/lib/systemd/user/
-install: install_target install_systemduser FORCE
+	@test -d $(INSTALL_ROOT)/usr/lib/systemd/ || mkdir -p $(INSTALL_ROOT)/usr/lib/systemd/
+	$(INSTALL_FILE) config/bootctld.service $(INSTALL_ROOT)/usr/lib/systemd/
+install: install_target install_systemd FORCE
 
 FORCE:
 
