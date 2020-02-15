@@ -20,9 +20,9 @@ Control the next slot to boot in A/B Devices by creating a daemon, allowing regu
 
 %install
 rm -rf %{buildroot}
+%qmake5_install
 
-
-%prerun
+%preun
 if [ "$1" = "0" ]; then
 	systemctl stop bootctld || true
 	systemctl disable bootctld || true
