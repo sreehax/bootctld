@@ -46,6 +46,7 @@ int main(int argc, char *argv[]) {
 			perror("recv");
 			ok = 0;
 		}
+		buff[strlen(buff)] = '\0';
 		printf("%s", buff);
 	}
 	if(fd >= 0) {
