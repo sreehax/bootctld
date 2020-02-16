@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include<sys/socket.h>
 #include<string.h>
+#include<stdlib.h>
 #include<sys/socket.h>
 #include<sys/un.h>
 #include<sys/stat.h>
@@ -28,14 +29,10 @@ int main() {
 			if(rc >= 4) {
 				if(!strncmp(buf, "android", 7)) {
 					write(cl, "activating android\n", 19);
-					if(fork() == 0) {
-						execl("/bin/bootctl", "bootctl", "set-active-boot-slot", "1", NULL);
-					}
+					system("/bin/bootctl set-active-boot-slot 1");
 				} else if(!strncmp(buf, "sfos", 4)) {
 					write(cl, "activating sfos\n", 16);
-					if(fork() == 0) {
-						execl("/bin/bootctl", "bootctl", "set-active-boot-slot", "0", NULL);
-					}
+					system("/bin/bootctl set-active-boot-slot 0");
 				}
 			}
 		}
