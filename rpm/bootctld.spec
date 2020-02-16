@@ -42,4 +42,5 @@ fi
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}
+%attr(755,root,root) %{_bindir}/bootmgr
 /usr/lib/systemd/system/
