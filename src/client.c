@@ -42,11 +42,10 @@ int main(int argc, char *argv[]) {
 		}
 	}
 	if(ok) {
-		if((len == recv(fd, buff, 8192, 0)) < 0) {
+		if((len == recv(fd, buff, 64, 0)) < 0) {
 			perror("recv");
 			ok = 0;
 		}
-		printf("len: %d\nstrlen: %d\n", len, strlen(buff));
 		printf("%s", buff);
 	}
 	if(fd >= 0) {
