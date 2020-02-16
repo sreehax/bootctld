@@ -14,6 +14,8 @@ int main() {
 	int fd = socket(AF_UNIX, SOCK_STREAM, 0);
 	int cl, rc;
 	char buf[100];
+	char *android_string = "activating android\n";
+	char *sfos_string = "activating sfos\n";
 	char *sock_path = "/run/bootctld.sock";
 	struct sockaddr_un addr;
 	memset(&addr, 0, sizeof(addr));
@@ -28,10 +30,10 @@ int main() {
 		while((rc = read(cl, buf, sizeof(buf))) > 0) {
 			if(rc >= 4) {
 				if(!strncmp(buf, "android", 7)) {
-					write(cl, "activating android\n", 19);
+					write(cl, android_string, strlen(android_string));
 					system("/bin/bootctl set-active-boot-slot 1");
 				} else if(!strncmp(buf, "sfos", 4)) {
-					write(cl, "activating sfos\n", 16);
+					write(cl, sfos_string, strlen(sfos_string));
 					system("/bin/bootctl set-active-boot-slot 0");
 				}
 			}
