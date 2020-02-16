@@ -5,7 +5,7 @@
 #include<sys/socket.h>
 #include<sys/un.h>
 void help(char *name) {
-	fprintf(stderr, "bootctlc: command line client for bootctld\n");
+	fprintf(stderr, "bootmgr: command line client for bootctld\n");
 	fprintf(stderr, "Usage: %s <sfos, android>\n", name);
 }
 int main(int argc, char *argv[]) {
